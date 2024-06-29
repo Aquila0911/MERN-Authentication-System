@@ -70,7 +70,16 @@ Make sure you have the following installed:
    cd ../frontend
    npm install
    ```
-3. **Run the application:**
+
+3. **Setup .env file in backend:**  
+   Create a `.env` file with
+   ```env
+   PORT = 5000
+   ACCESS_TOKEN_SECRET= [Generate sequence using crypto]
+   REFRESH_TOKEN_SECRET= [Generate sequence using crypto]
+   ```
+
+4. **Run the application:**
    ```bash
    # Backend
    cd backend
