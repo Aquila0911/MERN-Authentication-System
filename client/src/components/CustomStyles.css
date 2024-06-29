@@ -1,0 +1,25 @@
+/* Navbar */
+.ant-menu {
+  @apply antialiased
+      bg-gradient-to-r
+      from-black
+      via-purple-700
+      to-rose-900
+      from-10%
+      via-60%;
+}
+
+/* Nav Home-icon */
+.anticon.anticon-home.ant-menu-item-icon {
+  @apply text-white;
+}
+
+/* Nav text */
+.ant-menu-title-content {
+  @apply text-white;
+}
+
+/* Nav Logout-icon */
+.anticon.anticon-logout.ant-menu-item-icon {
+  @apply text-white
+}
