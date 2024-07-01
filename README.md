@@ -1,12 +1,13 @@
 # MERN Authentication System
 
-A full stack MERN (MongoDB, Express, React, Node.js) application which I developed during an internship at ***ThetaOne Software Developers Pvt.Ltd***. It incorporates authentication functionalities including JWTs, hashing, and user management.
+A full stack MERN (MongoDB, Express, React, Node.js) application which I developed during an internship at ***ThetaOne Software Developers Pvt.Ltd***. It incorporates authentication functionalities including JWTs, hashing, protected routes, and user management.
 
 ## Features
 
 - User Registration
 - User Login
 - JWT-based Authentication
+- Protected Routes
 - Password Hashing
 - Details Page for Logged-in Users
 - User Deletion
