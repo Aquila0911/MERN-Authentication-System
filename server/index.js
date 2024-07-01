@@ -19,20 +19,14 @@ app.get("/api", (req, res) => {
   res.json({ message: "/api says: Hello from server!" });
 });
 
-// Register new user
-app.use(registerRoute);
-
-// Login Authentication
-app.use(authRoute);
-
-// API call from details-page
-app.use(userDetailsRoute);
-
-// Delete user
-app.use(deleteRoute);
+// Routes
+app.use(registerRoute); // Register new user
+app.use(authRoute); // Login Authentication
+app.use(userDetailsRoute); // Users details
+app.use(deleteRoute); // Delete user
 
 // Start server
-const port = process.env.PORT;
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log("Server is listening on port 5000...");
 });
