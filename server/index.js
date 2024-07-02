@@ -1,6 +1,8 @@
 // Setup
 const express = require("express");
-const dotenv = require("dotenv");
+const app = express();
+require("dotenv").config();
+const cors = require("cors");
 const connectDB = require("./src/config/db.js");
 const authRoute = require("./src/routes/auth.js");
 const userDetailsRoute = require('./src/routes/userDetails');
@@ -8,9 +10,9 @@ const registerRoute = require('./src/routes/register');
 const deleteRoute = require('./src/routes/delete');
 const healthRoute = require('./src/routes/renderHealth');
 
-dotenv.config();
-const app = express();
+// Middleware
 app.use(express.json());
+app.use(cors());
 
 // Connect to MongoDB
 connectDB();
