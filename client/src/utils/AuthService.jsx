@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import React, { createContext, useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axiosInstance from "./axiosInstance";
 
 const AuthContext = createContext();
 
@@ -8,9 +8,21 @@ export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, []);
+
   const login = async (username, password) => {
     try {
-      const response = await axios.post("/api/login", { username, password });
+      const response = await axiosInstance.post("/api/login", {
+        username,
+        password,
+      });
       localStorage.setItem("accessToken", response.data.accessToken);
       localStorage.setItem("refreshToken", response.data.refreshToken);
       setIsLoggedIn(true);

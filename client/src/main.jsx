@@ -4,14 +4,14 @@ import App from "./App.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./ErrorPage.jsx";
-import Layout from "./components/Layout";
+import Layout from "./utils/Layout";
+import { AuthProvider } from "./utils/AuthService.jsx";
 import DetailsPage from "./components/DetailsPage";
 import LoginPage from "./components/login/LoginPage.jsx";
 import RegistrationPage from "./components/registration/RegistrationPage.jsx";
 import RegistrationSuccess from "./components/registration/RegistrationSuccess.jsx";
 import LoginProtection from "./components/protectedRoutes/LoginProtection.jsx";
 import RegistrationProtection from "./components/protectedRoutes/RegisterProtection.jsx";
-import { AuthProvider } from "./components/AuthService.jsx";
 
 const router = createBrowserRouter([
   {

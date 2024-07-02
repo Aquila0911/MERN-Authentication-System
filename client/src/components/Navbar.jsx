@@ -1,17 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { HomeOutlined, LogoutOutlined } from "@ant-design/icons";
 import { Menu } from "antd";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "./AuthService";
+import { useAuth } from "../utils/AuthService";
 import "./CustomStyles.css";
 
 export default function Navbar() {
   const [current, setCurrent] = useState("");
   const auth = useAuth();
-
   const navigate = useNavigate();
-
-  useEffect(() => {}, []);
 
   const onClick = (e) => {
     console.log("Clicked ", e);

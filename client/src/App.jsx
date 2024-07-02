@@ -1,18 +1,14 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useEffect } from "react";
+import axiosInstance from "./utils/axiosInstance";
 import HomePage from "./components/HomePage";
 
 function App() {
-  // For API call to /api
-  const [backendData, setBackendData] = useState("");
-
-  // useEffect to prevent infinite loop
-  useEffect(() => {
-    axios
+  // API call to /api
+  useEffect(() => { // useEffect to prevent infinite loop
+    axiosInstance
       .get("/api")
       .then((response) => {
-        setBackendData(response.data);
         console.log(response.data.message);
       })
       .catch((error) => {

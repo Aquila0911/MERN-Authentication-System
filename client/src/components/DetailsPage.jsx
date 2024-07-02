@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axiosInstance from "../utils/axiosInstance";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "./AuthService";
+import { useAuth } from "../utils/AuthService";
 // import { jwtDecode } from "jwt-decode";
 
 export default function DetailsPage() {
@@ -15,7 +15,7 @@ export default function DetailsPage() {
 
   // Function to make API requests
   const makeRequest = (url, options) => {
-    return axios({
+    return axiosInstance({
       url,
       ...options,
       headers: {
@@ -25,19 +25,19 @@ export default function DetailsPage() {
     });
   };
 
-  axios.interceptors.response.use(
+  axiosInstance.interceptors.response.use(
     (response) => response, // If response successful
     async (error) => {
       const originalRequest = error.config;
       if (error.response.status === 403 && !originalRequest._retry) {
         originalRequest._retry = true; // Mark this request as retried
         try {
-          const response = await axios.post("/api/refresh-token", {
+          const response = await axiosInstance.post("/api/refresh-token", {
             refreshToken,
           });
           accessToken = response.data.accessToken;
           originalRequest.headers["Authorization"] = `Bearer ${accessToken}`;
-          return axios(originalRequest); // Retry the original request with new token
+          return axiosInstance(originalRequest); // Retry the original request with new token
         } catch (refreshError) {
           return Promise.reject(refreshError);
         }
@@ -70,7 +70,7 @@ export default function DetailsPage() {
     setLoading(true);
     try {
       const userId = userDetails._id;
-      const response = await axios.delete(`/api/delete-user/${userId}`);
+      const response = await axiosInstance.delete(`/api/delete-user/${userId}`);
       console.log("User deleted successfully: ", response.data);
       auth.authService.logout();
     } catch (error) {

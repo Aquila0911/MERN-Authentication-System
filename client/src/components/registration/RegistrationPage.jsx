@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
+import axiosInstance from "../../utils/axiosInstance";
 import { useNavigate } from "react-router-dom";
 import {
   AutoComplete,
@@ -164,7 +164,7 @@ export default function RegistrationPage() {
     console.log("Form submitted! Sending data to the server...");
 
     // Sending entered details to the server for storing in the database
-    axios
+    axiosInstance
       .post("/api/register-user", updatedValues)
       .then((response) => {
         console.log("Success:", response.data.message);

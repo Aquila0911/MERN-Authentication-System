@@ -15,7 +15,7 @@ export default function LoginDisplay({ username, password, onClose }) {
             </button>
           </div>
           <div className="mt-3 p-4 bg-gray-50 border border-gray-300 rounded">
-            <h2 className="text-lg font-semibold">Submitted Data:</h2>
+            <h2 className="text-lg font-semibold">Entered Data:</h2>
             <p className="text-gray-700">Username: {username}</p>
             <p className="text-gray-700">Password: {password}</p>
           </div>

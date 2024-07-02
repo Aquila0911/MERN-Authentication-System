@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LoginDisplay from "./LoginDisplay";
 import LoginError from "./LoginError";
-import { useAuth } from '../AuthService';
+import { useAuth } from "../../utils/AuthService";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
