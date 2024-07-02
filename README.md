@@ -40,6 +40,13 @@ A full stack MERN (MongoDB, Express, React, Node.js) application which I develop
 - **crypto:** For secure random number generation, used for tokens.
 - **jsonwebtoken:** An implementation of JSON Web Tokens.
 - **nodemon:** Monitors changes and automatically restarts the server.
+- **cors:** Middleware to enable Cross-Origin Resource Sharing.
+
+## Deployment
+The deployment of this project is split between two platforms to leverage their strengths for different parts of the application (also because they're free):
+
+-  **Frontend**: Deployed on [Vercel](https://vercel.com/), known for its ease of use and automatic scaling. The frontend interacts with the backend through a base URL specified in the `.env.local` file, which is set to the backend's URL hosted on Render.
+-  **Backend**: Hosted on [Render](https://render.com/), chosen for its simplicity in setting up Node.js applications. The backend connects to a MongoDB Atlas database, with the connection URI securely stored in the `.env` file.
 
 ## Getting Started
 
@@ -49,7 +56,7 @@ Make sure you have the following installed:
 
 - Node.js
 - npm (Node Package Manager)
-- MongoDB
+- MongoDB (local or Atlas)
 
 ### Installation
 
@@ -75,9 +82,10 @@ Make sure you have the following installed:
 3. **Setup .env file in backend:**  
    Create a `.env` file with
    ```env
-   PORT = 5000
-   ACCESS_TOKEN_SECRET= [Generate sequence using crypto]
-   REFRESH_TOKEN_SECRET= [Generate sequence using crypto]
+   PORT=5000
+   ACCESS_TOKEN_SECRET=[Generate sequence using crypto]
+   REFRESH_TOKEN_SECRET=[Generate sequence using crypto]
+   MONGO_URI=[Your local or Atlas URI]
    ```
 
 4. **Run the application:**
