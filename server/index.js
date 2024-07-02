@@ -6,6 +6,7 @@ const authRoute = require("./src/routes/auth.js");
 const userDetailsRoute = require('./src/routes/userDetails');
 const registerRoute = require('./src/routes/register');
 const deleteRoute = require('./src/routes/delete');
+const healthRoute = require('./src/routes/renderHealth');
 
 dotenv.config();
 const app = express();
@@ -24,6 +25,7 @@ app.use(registerRoute); // Register new user
 app.use(authRoute); // Login Authentication
 app.use(userDetailsRoute); // Users details
 app.use(deleteRoute); // Delete user
+app.use(healthRoute); // Health check for Render
 
 // Start server
 const port = process.env.PORT || 5000;
