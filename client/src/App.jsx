@@ -5,7 +5,7 @@ import HomePage from "./components/HomePage";
 
 function App() {
   // API call to /api
-  useEffect(() => { // useEffect to prevent infinite loop
+  useEffect(() => { // useEffect to prevent infinite rerender of component
     axiosInstance
       .get("/api")
       .then((response) => {

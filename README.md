@@ -1,17 +1,17 @@
 # MERN Authentication System
 
-A full stack MERN (MongoDB, Express, React, Node.js) application which I developed during an internship at ***ThetaOne Software Developers Pvt.Ltd***. It incorporates authentication functionalities including JWTs, hashing, protected routes, and user management.
+A full stack MERN (MongoDB, Express, React, Node.js) application which I developed during an internship at ***ThetaOne Software Developers Pvt.Ltd***. It incorporates authentication and authorization, custom react hooks, protected routes and user management.
 
 ## Features
 
 - User Registration
-- User Login
-- JWT-based Authentication
-- Protected Routes
-- Password Hashing
+- User Login/Logout Functionality
 - Details Page for Logged-in Users
 - User Deletion
-- Logout Functionality
+- JWT-based Authentication
+- Custom React Hook for Authorization
+- Protected Routes
+- Password Hashing
 
 ## Technologies Used
 
@@ -33,6 +33,7 @@ A full stack MERN (MongoDB, Express, React, Node.js) application which I develop
 - **Autoprefixer:** A PostCSS plugin that automatically adds vendor prefixes to CSS rules.
 
 ### Backend
+
 - **express:** Fast, unopinionated, minimalist web framework for Node.js.
 - **mongoose:** MongoDB object modeling for Node.js.
 - **dotenv:** A zero-dependency module that loads environment variables.
@@ -43,10 +44,11 @@ A full stack MERN (MongoDB, Express, React, Node.js) application which I develop
 - **cors:** Middleware to enable Cross-Origin Resource Sharing.
 
 ## Deployment
+
 The deployment of this project is split between two platforms to leverage their strengths for different parts of the application (also because they're free):
 
--  **Frontend**: Deployed on [Vercel](https://vercel.com/), known for its ease of use and automatic scaling. The frontend interacts with the backend through a base URL specified in the `.env.local` file, which is set to the backend's URL hosted on Render.
--  **Backend**: Hosted on [Render](https://render.com/), chosen for its simplicity in setting up Node.js applications. The backend connects to a MongoDB Atlas database, with the connection URI securely stored in the `.env` file.
+- **Frontend**: Deployed on [Vercel](https://vercel.com/), known for its ease of use and automatic scaling. The frontend interacts with the backend through a base URL specified in the `.env.local` file, which is set to the backend's URL hosted on Render.
+- **Backend**: Hosted on [Render](https://render.com/), chosen for its simplicity in setting up Node.js applications. The backend connects to a MongoDB Atlas database, with the connection URI securely stored in the `.env` file.
 
 ## Getting Started
 
@@ -68,7 +70,7 @@ Make sure you have the following installed:
    ```
 
 2. **Install Dependencies:**
-   
+
    ```bash
    # Backend
    cd backend
@@ -81,6 +83,7 @@ Make sure you have the following installed:
 
 3. **Setup .env file in backend:**  
    Create a `.env` file with
+
    ```env
    PORT=5000
    ACCESS_TOKEN_SECRET=[Generate sequence using crypto]
@@ -89,6 +92,7 @@ Make sure you have the following installed:
    ```
 
 4. **Run the application:**
+
    ```bash
    # Backend
    cd backend
